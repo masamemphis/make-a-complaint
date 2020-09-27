@@ -12,11 +12,11 @@ import javax.persistence.Table;
 @Table(name = "contenttitle")
 @NamedQueries({
     @NamedQuery(
-            name = "getAllEmployees",
+            name = "getAllUsers",
             query = "SELECT e FROM ContentTitle AS e ORDER BY e.id DESC"
             ),
     @NamedQuery(
-            name = "getEmployeesCount",
+            name = "getUsersCount",
             query = "SELECT COUNT(e) FROM ContentTitle AS e"
             ),
     @NamedQuery(
@@ -32,28 +32,28 @@ import javax.persistence.Table;
 public class ContentTitle {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//id リソース内での連番   数値型
     private Integer id;
 
-    @Column(name = "code", nullable = false, unique = true)
+    @Column(name = "code", nullable = false, unique = true)//code   使用者番号    文字列型
     private String code;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false)//name  使用者名 文字列型
     private String name;
 
-    @Column(name = "password", length = 64, nullable = false)
+    @Column(name = "password", length = 64, nullable = false)//password システムへのログインパスワード 文字列型
     private String password;
 
-    @Column(name = "admin_flag", nullable = false)
+    @Column(name = "admin_flag", nullable = false)//admin_flag  管理者権限があるかどうか    数値型（一般：0、メンター：1）
     private Integer admin_flag;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = false)//created_at  登録日時    日時型
     private Timestamp created_at;
 
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at", nullable = false)//updated_at  更新日時    日時型
     private Timestamp updated_at;
 
-    @Column(name = "delete_flag", nullable = false)
+    @Column(name = "delete_flag", nullable = false)//delete_flag    削除された従業員かどうか    数値型（現役：0、削除済み：1）
     private Integer delete_flag;
 
     public Integer getId() {
