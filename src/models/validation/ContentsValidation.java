@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import models.ContentTitle;
 import utils.DBUtil;
 
-public class Contentsvalidator {
+public class ContentsValidation {
     public static List<String> validate(ContentTitle e, Boolean code_duplicate_check_flag, Boolean password_check_flag) {
         List<String> errors = new ArrayList<String>();
 
@@ -40,11 +40,11 @@ public class Contentsvalidator {
         // すでに登録されている使用者番号との重複チェック
         if(code_duplicate_check_flag) {
             EntityManager em = DBUtil.createEntityManager();
-            long employees_count = (long)em.createNamedQuery("checkRegisteredCode", Long.class)
+            long users_count = (long)em.createNamedQuery("checkRegisteredCode", Long.class)
                                            .setParameter("code", code)
                                              .getSingleResult();
             em.close();
-            if(employees_count > 0) {
+            if(users_count > 0) {
                 return "入力された使用者番号の情報はすでに存在しています。";
             }
         }
@@ -70,4 +70,3 @@ public class Contentsvalidator {
         return "";
     }
 }
-
