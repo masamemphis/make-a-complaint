@@ -4,14 +4,28 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>自己分析</title>
+        <title>自己分析管理システム</title>
         <link rel="stylesheet" href="<c:url value='/css/reset.css' />">
         <link rel="stylesheet" href="<c:url value='/css/style.css' />">
     </head>
     <body>
         <div id="wrapper">
             <div id="header">
-                <h1>自己分析</h1>
+                <div id="header_menu">
+                    <h1><a href="<c:url value='/' />">自己分析管理システム</a></h1>&nbsp;&nbsp;&nbsp;
+                    <c:if test="${sessionScope.login_user != null}">
+                        <c:if test="${sessionScope.login_user.admin_flag == 1}">
+                            <a href="<c:url value='/contentstitle/index' />">使用者管理</a>&nbsp;
+                        </c:if>
+                        <a href="<c:url value='/reports/index' />">自己分析管理</a>&nbsp;
+                    </c:if>
+                </div>
+                <c:if test="${sessionScope.login_user != null}">
+                    <div id="user_name">
+                        <c:out value="${sessionScope.login_user.name}" />&nbsp;さん&nbsp;&nbsp;&nbsp;
+                        <a href="<c:url value='/logout' />">ログアウト</a>
+                    </div>
+                </c:if>
             </div>
             <div id="content">
                 ${param.content}
