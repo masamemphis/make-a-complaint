@@ -49,6 +49,5 @@
         </c:choose>
 
         <p><a href="<c:url value='/contentstitle/index' />">一覧に戻る</a></p>
-        <p>幼少期の思い出は</p>
     </c:param>
 </c:import>

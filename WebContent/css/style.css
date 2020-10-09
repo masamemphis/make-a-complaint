@@ -137,65 +137,10 @@ h1 a {
     color: #eeeeee;
 }
 
-table#report_list th {
-    font-weight: bold;
-    padding: 10px 2%;
-}
-
-table#report_list .report_name {
-    width: 20%;
-    padding: 10px 2%;
-}
-table#report_list .report_date {
-    width: 20%;
-}
-
 table#report_list .report_title {
-    width: 37%;
+    width: 50%;
 }
 
 table#report_list .report_action {
-    width: 13%;
-}
-
-pre {
-    font-family: "Hiragino kaku gothic Pro",Meiryo,"MW PGothic",Helvetica,Arial,sans-serif;
-}
-
-h3 {
-    font-size: larger;
-}
-
-/* h4 { */
-/*     font-size: 15px; */
-/* } */
-
-/* h4 a{ */
-/*     color: #797979; */
-/*     width: 70px; */
-/*     height: 18px; */
-/*     display: block; */
-/*     background-color: #eee; */
-/*     border: 2px solid #fff; */
-/*     box-shadow: 0 0 0 2px #eee; */
-/*     padding: 1em; */
-/* } */
-
-h4 a{
-  display: inline-block;
-  max-width: 180px;
-  text-align: left;
-  border: 2px solid #a9a9a9;
-  font-size: 16px;
-  color: #a9a9a9;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: .4s;
-}
-
-.h4:hover {
-  background-color: #a9a9a9;
-  color: #a9a9a9;
+    width: 50%;
 }

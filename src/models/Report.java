@@ -31,27 +31,27 @@ import javax.persistence.Table;
 public class Report {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//id リソース内での連番   数値型
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)//user_id    日報を登録した使用者の番号  文字列型
     private ContentTitle user;
 
-    @Column(name = "report_date", nullable = false)
+    @Column(name = "report_date", nullable = false)//report_date    いつの日報かを示す日付 日付型
     private Date report_date;
 
-    @Column(name = "title", length = 255, nullable = false)
+    @Column(name = "title", length = 255, nullable = false)//title  日報のタイトル 文字列型
     private String title;
 
     @Lob
-    @Column(name = "content", nullable = false)
+    @Column(name = "content", nullable = false)//content    日報の内容   テキスト型
     private String content;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = false)//created_at  登録日時    日時型
     private Timestamp created_at;
 
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at", nullable = false)//updated_at  更新日時    日時型
     private Timestamp updated_at;
 
     public Integer getId() {
@@ -66,7 +66,7 @@ public class Report {
         return user;
     }
 
-    public void setEmployee(ContentTitle user) {
+    public void setContentTitle(ContentTitle user) {
         this.user = user;
     }
 
@@ -109,4 +109,6 @@ public class Report {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
+
 }
