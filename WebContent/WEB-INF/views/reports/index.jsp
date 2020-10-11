@@ -37,7 +37,7 @@
                 </c:choose>
             </c:forEach>
         </div>
-         <p><a href="<c:url value='/reports/new' />">質問の登録</a></p>
+        <p><a href="<c:url value='/reports/new' />">質問の登録</a></p>
 
     </c:param>
 </c:import>
