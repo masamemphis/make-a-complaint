@@ -10,7 +10,7 @@
 
     </div>
 </c:if>
-<label for="title">質問</label><br />
+<label for="title">クレーム</label><br />
 <input type="text" name="title" value="${report.title}" />
 <br /><br />
 

@@ -8,11 +8,11 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>質問　一覧</h2>
+        <h2>クレーム　一覧</h2>
         <table id="report_list">
             <tbody>
                 <tr>
-                    <th class="report_title">質問</th>
+                    <th class="report_title">クレーム</th>
                     <th class="report_action">操作</th>
                 </tr>
                 <c:forEach var="report" items="${reports}" varStatus="status">
@@ -37,7 +37,7 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='/reports/new' />">質問の登録</a></p>
+        <p><a href="<c:url value='/reports/new' />">クレームの登録</a></p>
 
     </c:param>
 </c:import>

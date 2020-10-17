@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.ContentTitle;
 import utils.DBUtil;
-
 /**
  * Servlet implementation class ContentsTitleIndexservlet
  */
@@ -29,15 +28,12 @@ public class ContentsTitleIndexservlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-
-
-
-
-
-
     /**
+     * @param search
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
+
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
@@ -45,15 +41,26 @@ public class ContentsTitleIndexservlet extends HttpServlet {
         try{
             page = Integer.parseInt(request.getParameter("page"));
         } catch(NumberFormatException e) { }
-        List<ContentTitle> users = em.createNamedQuery("getAllUsers", ContentTitle.class)
-                                     .setFirstResult(15 * (page - 1))
-                                     .setMaxResults(15)
-                                     .getResultList();
+
+        String code = request.getParameter("search");
+
+
+
+        List<ContentTitle> users = null;
+        if (code != null && !code.equals("")) {
+            users =  (List<ContentTitle>) em.createNamedQuery("searchRegisterCode",ContentTitle.class).setParameter("code", code).getResultList();
+        } else {
+             users = em.createNamedQuery("getAllUsers", ContentTitle.class)
+                                             .setFirstResult(15 * (page - 1))
+                                             .setMaxResults(15)
+                                             .getResultList();
+        }
 
         long users_count = (long)em.createNamedQuery("getUsersCount", Long.class)
                                        .getSingleResult();
 
         em.close();
+        request.setAttribute("code",code);
 
         request.setAttribute("users", users);
         request.setAttribute("users_count", users_count);
@@ -66,4 +73,6 @@ public class ContentsTitleIndexservlet extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/contentstitle/index.jsp");
         rd.forward(request, response);
     }
+
+
 }

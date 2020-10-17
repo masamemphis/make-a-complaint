@@ -8,6 +8,11 @@
             </div>
         </c:if>
         <h2>使用者　一覧</h2>
+        <form action="index" method="get">
+  <p>使用者番号を入力してください。</p>
+  <input type="search" name="search" placeholder="使用者番号を入力">
+  <input type="submit" name="search" value="検索">
+</form>
         <table id="user_list">
             <tbody>
                 <tr>

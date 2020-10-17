@@ -8,7 +8,7 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>自己分析システムへようこそ</h2>
+        <h2>クレームシステムへようこそ</h2>
         <h3>【質問　一覧】</h3>
         <table id="report_list">
             <tbody>

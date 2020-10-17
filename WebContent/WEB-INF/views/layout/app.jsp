@@ -4,7 +4,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>自己分析管理システム</title>
+        <title>クレーム管理システム</title>
         <link rel="stylesheet" href="<c:url value='/css/reset.css' />">
         <link rel="stylesheet" href="<c:url value='/css/style.css' />">
     </head>
@@ -12,7 +12,7 @@
         <div id="wrapper">
             <div id="header">
                 <div id="header_menu">
-                    <h1><a href="<c:url value='/' />">自己分析管理システム</a></h1>&nbsp;&nbsp;&nbsp;
+                    <h1><a href="<c:url value='/' />">クレーム管理システム</a></h1>&nbsp;&nbsp;&nbsp;
                     <c:if test="${sessionScope.login_user != null}">
                         <c:if test="${sessionScope.login_user.admin_flag == 1}">
                             <a href="<c:url value='/contentstitle/index' />">使用者管理</a>&nbsp;
